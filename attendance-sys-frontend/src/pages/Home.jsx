@@ -2,11 +2,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
+const backendurl = import.meta.env.VITE_BACKEND_URL;
+
 const Home = () => {
   const [message, setMessage] = useState("");
   useEffect(() => {
     axios
-      .get("http://localhost:8000/")
+      .get(`${backendurl}/`)
       .then((response) => {
         setMessage(response.data.message);
       })

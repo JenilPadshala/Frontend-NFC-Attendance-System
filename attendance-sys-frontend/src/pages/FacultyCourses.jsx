@@ -6,6 +6,7 @@ import { useState } from "react";
 import Courses from "../components/Courses";
 import FacultyNavbar from "../components/FacultyNavbar";
 
+const backendurl = import.meta.env.VITE_BACKEND_URL;
 export default function FacultyCourses() {
   const [courses, setCourses] = useState([]);
   // Retrieve state passed from the FacultyLogin component
@@ -15,7 +16,7 @@ export default function FacultyCourses() {
     //Fetch courses taught by the faculty from the backend
     const fetchCourses = async () => {
       axios
-        .get(`http://localhost:8000/faculty/${facultyData.faculty_id}/courses`)
+        .get(`${backendurl}/faculty/${facultyData.faculty_id}/courses`)
         .then((response) => {
           if (response.status === 200) {
             setCourses(response.data);
