@@ -47,9 +47,19 @@ export default function FacultyLogin() {
       });
   }
 
+  function handleBackButton() {
+    navigate("/");
+  }
+
   return (
     <div className="container mt-5">
       <h1 className="text-center">Faculty Login</h1>
+
+      <div className="d-flex justify-content-end">
+        <button className="btn btn-dark ms-auto" onClick={handleBackButton}>
+          Back
+        </button>
+      </div>
 
       <form onSubmit={handleLogin} className="mt-4">
         <div className="mb-3">

@@ -15,6 +15,7 @@ export default function StudentLogin() {
   });
   const [errorMessage, setErrorMessage] = useState("");
   const [loginSuccess, setLoginSuccess] = useState(false);
+
   const navigate = useNavigate();
 
   function handleLogin(e) {
@@ -47,9 +48,19 @@ export default function StudentLogin() {
       });
   }
 
+  function handleBackButton() {
+    navigate("/");
+  }
+
   return (
     <div className="container mt-5">
       <h1 className="text-center">Student Login</h1>
+
+      <div className="d-flex justify-content-end">
+        <button className="btn btn-dark ms-auto" onClick={handleBackButton}>
+          Back
+        </button>
+      </div>
 
       <form onSubmit={handleLogin} className="mt-4">
         <div className="mb-3">
